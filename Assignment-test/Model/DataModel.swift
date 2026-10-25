@@ -27,9 +27,27 @@ struct WeatherData: Codable {
 }
 
 struct RandomFactData: Codable {
+    let text: String
+    let source: String
+    let sourceUrl: String
+    let permalink: String
     
+    enum CodingKeys: String, CodingKey {
+        case sourceUrl = "source_url"
+        case text
+        case source
+        case permalink
+    }
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.sourceUrl = try container.decode(String.self, forKey: .sourceUrl)
+        self.text = try container.decode(String.self, forKey: .text)
+        self.source = try container.decode(String.self, forKey: .source)
+        self.permalink = try container.decode(String.self, forKey: .permalink)
+    }
 }
 
 struct DogImageData: Codable {
-    
+    let message: String
+    let status: String
 }
