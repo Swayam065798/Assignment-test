@@ -11,4 +11,6 @@ class DashBoardVM: ObservableObject {
     @Published var waetherDataResp: WeatherData?
     @Published var randomFactData: RandomFactData?
     @Published var dogImgData: DogImageData?
+    @Published var isLOading: Bool = false
+    
 }
