@@ -30,9 +30,31 @@ struct DashBoardView: View {
                     }
                 }
                 .padding()
+            } else if let weather = dashBoardVM.waetherDataResp,
+                let fact = dashBoardVM.randomFactData,
+                let dog = dashBoardVM.dogImgData
+            {
+
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Dashboard")
+                        .font(.largeTitle)
+                    Text("Weather Details")
+                        .font(.headline)
+                    Text("Latitude: \(weather.latitude)")
+                    Text("Longitude: \(weather.longitude)")
+                    Divider()
+                    Text("Random Fact")
+                        .font(.headline)
+                    Text(fact.text)
+                    Divider()
+                    Text("Dog Image URL")
+                        .font(.headline)
+                    Text(dog.message)
+                        .font(.caption)
+                }
+                .padding()
             } else {
-                Text("Dashboard")
-                    .font(.largeTitle)
+                Text("No data available")
             }
         }
         .task {
