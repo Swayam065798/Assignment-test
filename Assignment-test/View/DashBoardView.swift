@@ -25,7 +25,7 @@ struct DashBoardView: View {
                         .multilineTextAlignment(.center)
                     Button("Retry All") {
                         Task {
-                            await dashBoardVM.getAPIData()
+                            await dashBoardVM.getVMAPIData()
                         }
                     }
                 }
@@ -58,7 +58,7 @@ struct DashBoardView: View {
             }
         }
         .task {
-            await dashBoardVM.getAPIData()
+            await dashBoardVM.getVMAPIData()
         }
     }
 }

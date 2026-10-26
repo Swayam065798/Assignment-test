@@ -19,7 +19,7 @@ final class APIClient {
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
-        guard let response = response as? HTTPURLResponse else {
+        guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
             throw APIErorCases.invalidResponse
         }
         

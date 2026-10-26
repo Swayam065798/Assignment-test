@@ -16,7 +16,7 @@ final class DashBoardVM: ObservableObject {
     @Published var isLOading: Bool = false
     @Published var errorMsg: String?
 
-    func getAPIData() async {
+    func getVMAPIData() async {
         
         self.isLOading = true
 
